@@ -3,6 +3,10 @@ Web based server manager for Assetto Corsa directly manipulating the ini files o
 
 Start and stop the server, stracker and MinoRating directly from the application, meaning you can make changes to the server configuration and restart the server directly from your browser or mobile phone.
 
+So I'm no professional - I just tweaked the work of two other great programmers to fit my conditions - perhaps this is useful for someone else as well.
+
+All the honor goes to the following:
+
 Original Branches are from 
 [jo3stevens](https://github.com/jo3stevens/ACServerManager)
 and
