@@ -102,7 +102,7 @@
 						
 						<form>
 							<fieldset>
-								<legend>BC Assetto Corsa Server</legend>
+								<legend>Assetto Corsa Server</legend>
 								
 								<div class="row">
 									<div class="col-sm-2">
@@ -129,7 +129,7 @@
 							</fieldset>
 							
 							<fieldset class="top10" ng-hide="sTrackerServerStatus === -2">
-								<legend>sTracker Server (please always start sTracker!)</legend>
+								<legend>sTracker Server PlugIn(please always start sTracker!)</legend>
 								
 								<div class="row">
 									<div class="col-sm-2">
@@ -142,11 +142,11 @@
 										</button>
 										
 										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-danger btn-sm" ng-show="sTrackerServerStatus === 1" ng-click="restartSTrackerServer()">
+											<button type="button" class="btn btn-danger btn-sm" ng-show="sTrackerServerStatus === 1 && minoRatingServerStatus === 0" ng-click="restartSTrackerServer()">
 												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Restart
 											</button>
 											
-											<button type="button" class="btn btn-danger btn-sm" ng-show="sTrackerServerStatus === 1" ng-click="stopSTrackerServer()">
+											<button type="button" class="btn btn-danger btn-sm" ng-show="sTrackerServerStatus === 1  && minoRatingServerStatus === 0" ng-click="stopSTrackerServer()">
 												<span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
 											</button>
 										</div>
@@ -157,7 +157,7 @@
 							
 
 							<fieldset class="top10" ng-hide="minoRatingServerStatus === -2">
-								<legend>MinoRating Server (please always start MinoRating!)</legend>
+								<legend>MinoRating Server PlugIn (please always start MinoRating!)</legend>
 								
 								<div class="row">
 									<div class="col-sm-2">
@@ -169,11 +169,7 @@
 											<span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
 										</button>
 										
-										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-danger btn-sm" ng-show="minoRatingServerStatus === 1" ng-click="restartMinoRatingServer()">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Restart
-											</button>
-											
+										
 											<button type="button" class="btn btn-danger btn-sm" ng-show="minoRatingServerStatus === 1" ng-click="stopMinoRatingServer()">
 												<span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
 											</button>
