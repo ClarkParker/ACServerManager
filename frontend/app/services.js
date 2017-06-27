@@ -152,7 +152,23 @@ angular.module('acServerManager.services', ['ngResource']).
 			}
         };
     }).
-	factory('ProcessService', function($resource) {
+	factory('WeatherService', function($resource) {
+        return {
+            GetWeather: function(callback) {
+                var resource = $resource('/api/weather');
+                var result = resource.query(function() {
+                    callback(result);
+                });
+            },
+			SaveWeather: function(data, callback) {
+				var resource = $resource('/api/weather');
+				var result = resource.save(data, function () {
+                    callback(result);
+                });
+			}
+        };
+    }).
+	factory('ProcessService', function($resource, $timeout) {
         return {
             ACServerStatus: function(callback) {
                 var resource = $resource('/api/acserver/status');
@@ -172,8 +188,25 @@ angular.module('acServerManager.services', ['ngResource']).
                     callback(result);
                 });
             },
+			RestartACServer: function (callback) {
+                var resource = $resource('/api/acserver/stop');
+                var result = resource.save(function () {
+					$timeout(function() {
+						var resource = $resource('/api/acserver');
+						var result = resource.save(function () {
+							callback(result);
+						});                    
+					}, 500);
+                });
+            },
 			STrackerServerStatus: function(callback) {
                 var resource = $resource('/api/strackerserver/status');
+                var result = resource.get(function() {
+                    callback(result);
+                });
+            },
+			MinoRatingServerStatus: function(callback) {
+                var resource = $resource('/api/minoratingserver/status');
                 var result = resource.get(function() {
                     callback(result);
                 });
@@ -184,14 +217,45 @@ angular.module('acServerManager.services', ['ngResource']).
                     callback(result);
                 });
             },
+			StartMinoRatingServer: function (callback) {
+                var resource = $resource('/api/minoratingserver');
+                var result = resource.save(function () {
+                    callback(result);
+                });
+            },
 			StopSTrackerServer: function (callback) {
                 var resource = $resource('/api/strackerserver/stop');
                 var result = resource.save(function () {
                     callback(result);
                 });
+            },
+			StopMinoRatingServer: function (callback) {
+                var resource = $resource('/api/minoratingserver/stop');
+                var result = resource.save(function () {
+                    callback(result);
+                });
+            },
+			RestartMinoRatingServer: function (callback) {
+                var resource = $resource('/api/minoratingserver/stop');
+                var result = resource.save(function () {
+                    var resource = $resource('/api/minoratingserver');
+					var result = resource.save(function () {
+						callback(result);
+					});
+                });
+            },
+			RestartSTrackerServer: function (callback) {
+                var resource = $resource('/api/strackerserver/stop');
+                var result = resource.save(function () {
+                    var resource = $resource('/api/strackerserver');
+					var result = resource.save(function () {
+						callback(result);
+					});
+                });
             }
         };
     }).
+
 	factory('EntryListService', function($resource) {
         return {
             GetEntryList: function(callback) {
@@ -225,6 +289,16 @@ angular.module('acServerManager.services', ['ngResource']).
 			DeleteDriver: function(guid, callback) {
                 var resource = $resource('/api/drivers/:guid');
                 var result = resource.delete({guid: guid}, function() {
+                    callback(result);
+                });
+            }
+        };
+    }).
+	factory('TyreService', function($resource) {
+        return {
+            GetTyres: function(cars, callback) {
+                var resource = $resource('/api/tyres');
+                var result = resource.get({cars: cars}, function() {
                     callback(result);
                 });
             }
