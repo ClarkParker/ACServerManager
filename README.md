@@ -99,7 +99,7 @@ the necessary ports for the server to function correctly.
 
 ## Screenshots
 ### Server Status
-![Server Status](http://www.burnoutcrew.de/wp-content/uploads/2017/06/ServerStatus.png)
+![Server Status](http://www.burnoutcrew.de/wp-content/uploads/2017/06/ServerStatus-1.png)
 
 ### Server Configuration
 ![Server Config](http://deltahosting.dyndns.org:8080/acmanager/screen-cap-2.JPG)
