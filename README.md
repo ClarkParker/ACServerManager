@@ -1,7 +1,7 @@
 # ACServerManager
 Web based server manager for Assetto Corsa directly manipulating the ini files on the server as an alternative to the windows app and having to copy files to your server.
 
-Start and stop the server, and stracker directly from the application, meaning you can make changes to the server configuration and restart the server directly from your browser or mobile phone.
+Start and stop the server, stracker and MinoRating directly from the application, meaning you can make changes to the server configuration and restart the server directly from your browser or mobile phone.
 
 ##Installation
 ###Prep
@@ -23,6 +23,7 @@ Copy the web application to your server, it doesn't matter where you choose to p
 Open settings.js and set the correct values for your setup:
 - serverPath: The path to your server folder containing acServer.exe
 - sTrackerPath: The path to your stracker folder container stracker.exe (If you don't run stracker just leave this as an empty string ('') to disable it
+- minoRatingPath: The path to your MinoRating folder container MinoRatingPlugin.exe (If you don't run MinoRatingPlugin just leave this as an empty string ('') to disable it. Note that you can use MinoRatingPlugin AND sTracker if you will use sTrackers UDP Proy function (see sTracker manuall to set this up). 
 - username/password: Set these values if you want basic authentication on the application
 - port: The port that the application will listen on (Be sure to open up this port on firewalls)
 
@@ -38,7 +39,7 @@ You can change any setting and it will be applied directly to server_cfg.ini and
 
 ##Screenshots
 ###Server Status
-![Server Status](http://yeahyou.com/ACServerManager/server-status.jpg)
+![Server Status](http://www.burnoutcrew.de/wp-content/uploads/2017/06/ServerStatus.png)
 
 ###Server Configuration
 ![Server Config](http://www.yeahyou.com/ACServerManager/server-config.jpg)
